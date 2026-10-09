@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123b5d">
+    <title>Mini Finance Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main class="container">
+        <header class="header">
+            <h1>My Finance Tracker</h1>
+            <p class="description">Track your income and expenses easily.</p>
+        </header>
+
+        <section id="balance" aria-label="Current balance">
+            <h2>Current Balance</h2>
+            <span>₹0</span>
+        </section>
+
+        <section class="cards" aria-label="Financial summary">
+            <article id="balanceCard">
+                <h3>Balance</h3>
+                <p>₹0</p>
+            </article>
+            <article id="incomeCard">
+                <h3>Income</h3>
+                <p>₹0</p>
+            </article>
+            <article id="expenseCard">
+                <h3>Expense</h3>
+                <p>₹0</p>
+            </article>
+        </section>
+
+        <form id="transactionForm">
+            <h2>Add Transaction</h2>
+
+            <label for="amount">Amount
+                <input
+                    type="number"
+                    id="amount"
+                    min="0.01"
+                    step="0.01"
+                    placeholder="Enter amount"
+                    required
+                >
+            </label>
+
+            <label for="type">Type
+                <select id="type">
+                    <option value="Expense">Expense</option>
+                    <option value="Income">Income</option>
+                </select>
+            </label>
+
+            <label for="category">Category
+                <select id="category">
+                    <option>Food</option>
+                    <option>Travel</option>
+                    <option>Shopping</option>
+                    <option>Bills</option>
+                </select>
+            </label>
+
+            <label for="date">Date
+                <input type="date" id="date" required>
+            </label>
+
+            <label for="description">Description
+                <input
+                    type="text"
+                    id="description"
+                    placeholder="Enter description"
+                    required
+                >
+            </label>
+
+            <button id="button" type="submit">Add Transaction</button>
+        </form>
+
+        <section
+            class="transactions-panel"
+            aria-labelledby="transactionsHeading"
+        >
+            <h2 id="transactionsHeading">Transactions</h2>
+
+            <div class="filters" aria-label="Filter transactions">
+                <label class="search-field" for="searchInput">
+                    Search
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Search descriptions..."
+                    >
+                </label>
+
+                <label for="typeFilter">
+                    Type
+                    <select id="typeFilter">
+                        <option value="All">All types</option>
+                        <option value="Income">Income</option>
+                        <option value="Expense">Expense</option>
+                    </select>
+                </label>
+
+                <label for="categoryFilter">
+                    Category
+                    <select id="categoryFilter">
+                        <option value="All">All categories</option>
+                        <option value="Food">Food</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Bills">Bills</option>
+                        <option value="Rent">Rent</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Medical">Medical</option>
+                        <option value="Salary">Salary</option>
+                        <option value="Freelance">Freelance</option>
+                        <option value="Business">Business</option>
+                        <option value="Interest">Interest</option>
+                        <option value="Other Income">Other Income</option>
+                    </select>
+                </label>
+            </div>
+
+            <div id="transactionList" aria-live="polite"></div>
+        </section>
+    </main>
+</body>
+</html>
